@@ -72,6 +72,8 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem;
+  background-color: var(--blue-two);
 }
 
 .cv-preview {
@@ -89,3 +91,4 @@ input {
   padding: 5px;
   font-size: 1.2rem;
 }
+

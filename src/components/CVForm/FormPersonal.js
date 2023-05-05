@@ -1,12 +1,13 @@
 import React from 'react';
 
-const FormPersonal = () => {
+const FormPersonal = (props) => {
     return (
         <section>
 
-<input type="text" name="firstName" id="firstName" placeholder='First Name'/>
+<h4>Personal Info</h4>
+<input type="text" name="firstName" id="firstName" placeholder='First Name' onChange={props.handleChangeFirstName}/>
 
-<input type="text" name="lastName" id="lastName" placeholder='Last Name'/>
+<input type="text" name="lastName" id="lastName" placeholder='Last Name' onChange={props.handleChangeLastName}/>
 
 <input type="text" name="title" id="title" placeholder='Title'/>
 <input type="text" name="address" id="address" placeholder='Address'/>
