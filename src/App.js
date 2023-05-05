@@ -8,24 +8,25 @@ class App extends Component {
 	state = { personal: { firstName: '', lastName: '' } };
 
 	handleChangeFirstName = (e) => {
-		this.setState({
+		this.setState((prevState) => ({
 			personal: {
+				...prevState.personal,
 				firstName: e.target.value,
-				lastName: this.state.personal.lastName,
 			},
-		});
+		}));
 	};
 
 	handleChangeLastName = (e) => {
-		this.setState({
+		this.setState((prevState) => ({
 			personal: {
-				firstName: this.state.personal.firstName,
+				...prevState.personal,
 				lastName: e.target.value,
 			},
-		});
+		}));
 	};
 
 	render() {
+		const { firstName, lastName } = this.state.personal;
 		return (
 			<div className='main-container'>
 				<Header />
@@ -36,10 +37,7 @@ class App extends Component {
 						handleChangeLastName={this.handleChangeLastName}
 					/>
 
-					<CVPreview
-						firstName={this.state.personal.firstName}
-						lastName={this.state.personal.lastName}
-					/>
+					<CVPreview firstName={firstName} lastName={lastName} />
 				</div>
 
 				<Footer />
