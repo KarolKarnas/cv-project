@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <header><h1>Write your CV!</h1></header>
+        <header><h1>We are hiring Front End DEVS! Write your CV!</h1></header>
     )
 }
 

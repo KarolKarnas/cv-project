@@ -13,6 +13,8 @@ class App extends Component {
 		],
 	};
 
+	// personal
+
 	handleChangeFirstName = (e) => {
 		this.setState((prevState) => ({
 			personal: {
@@ -39,10 +41,12 @@ class App extends Component {
 		}));
 	};
 
+	// buttons
+
 	handleExperienceDelete = (id) => {
-		this.setState(prevState => ({
-			experience: prevState.experience.filter(exp => exp.id !== id)
-		  }));
+		this.setState((prevState) => ({
+			experience: prevState.experience.filter((exp) => exp.id !== id),
+		}));
 	};
 
 	handleExperienceAdd = () => {
@@ -54,6 +58,39 @@ class App extends Component {
 		}));
 	};
 
+	// Experience
+
+	handleChangePosition = (e, id) => {
+		console.log(e.target);
+		this.setState(prevState => ({
+		  experience: prevState.experience.map(exp => exp.id === id ? { ...exp, position: e.target.value } : exp)
+		}));
+	  };
+
+	// handleChangePosition = (e, id) => {
+	// 	this.setState((prevState) => ({
+	// 		experience: prevState.experience.map((exp) => {
+	// 			if (exp.id === id) {
+	// 				return {
+	// 					...exp,
+	// 					position: e.target.value,
+	// 				};
+	// 			} else {
+	// 				return exp;
+	// 			}
+	// 		}),
+	// 	}));
+	// };
+
+	// handleChangePosition = (e, id) => {
+	// 	const index = this.state.experience.findIndex(exp => exp.id === id);
+	// 	const updatedExperience = [...this.state.experience];
+	// 	updatedExperience[index] = { ...updatedExperience[index], position: e.target.value };
+	// 	this.setState({ experience: updatedExperience });
+	//   };
+
+
+	
 	render() {
 		const { firstName, lastName, title } = this.state.personal;
 
@@ -70,9 +107,15 @@ class App extends Component {
 						handleExperienceDelete={this.handleExperienceDelete}
 						experience={this.state.experience}
 						handleExperienceAdd={this.handleExperienceAdd}
+						handleChangePosition={this.handleChangePosition}
 					/>
 
-					<CVPreview firstName={firstName} lastName={lastName} title={title} />
+					<CVPreview
+						firstName={firstName}
+						lastName={lastName}
+						title={title}
+						experience={this.state.experience}
+					/>
 				</div>
 
 				<Footer />

@@ -5,7 +5,7 @@ import FormExperience from './FormExperience';
 const CVForm = (props) => {
 	// console.log(props)
 
-    const {experience} = props
+    // const {experience} = props
     // console.log(experience);
 
 	return (
@@ -18,8 +18,8 @@ const CVForm = (props) => {
                 firstName={props.firstName}
 			/>
 
-            {experience.map((exp) => {
-                return <FormExperience key={exp.id} id={exp.id} handleExperienceDelete={props.handleExperienceDelete}/>
+            {props.experience.map((exp) => {
+                return <FormExperience key={exp.id} id={exp.id} handleExperienceDelete={props.handleExperienceDelete} handleChangePosition={props.handleChangePosition}/>
             })}
             {/* <FormExperience handleExperienceDelete={props.handleExperienceDelete}/> */}
             <button onClick={props.handleExperienceAdd}>Add Experience</button>

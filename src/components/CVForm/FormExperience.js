@@ -4,7 +4,7 @@ const FormExperience = (props) => {
 	return (
 		<section>
 			<h4>Experience</h4>
-			<input type='text' name='position' id='position' placeholder='Position' />
+			<input type='text' name='position' id='position' placeholder='Position' onChange={(e) => props.handleChangePosition(e, props.id)}/>
 
 			<input type='text' name='company' id='company' placeholder='Company' />
 
