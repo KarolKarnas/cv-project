@@ -92,3 +92,13 @@ input {
   font-size: 1.2rem;
 }
 
+button {
+  padding: 5px;
+  font-size: 1.2rem;
+background-color: gold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+

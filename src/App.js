@@ -3,9 +3,15 @@ import Header from './components/Header';
 import CVForm from './components/CVForm/CVForm';
 import CVPreview from './components/CVPreview/CVPreview';
 import Footer from './components/Footer';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
-	state = { personal: { firstName: '', lastName: '' } };
+	state = {
+		personal: { firstName: 'Karol', lastName: 'Karnas', title: 'Magister' },
+		experience: [
+			{ id: uuidv4(), position: '', company: '', city: '', from: '', to: '' },
+		],
+	};
 
 	handleChangeFirstName = (e) => {
 		this.setState((prevState) => ({
@@ -24,9 +30,33 @@ class App extends Component {
 			},
 		}));
 	};
+	handleChangeTitle = (e) => {
+		this.setState((prevState) => ({
+			personal: {
+				...prevState.personal,
+				title: e.target.value,
+			},
+		}));
+	};
+
+	handleExperienceDelete = (id) => {
+		this.setState(prevState => ({
+			experience: prevState.experience.filter(exp => exp.id !== id)
+		  }));
+	};
+
+	handleExperienceAdd = () => {
+		this.setState((prevState) => ({
+			experience: [
+				...prevState.experience,
+				{ id: uuidv4(), position: '', company: '', city: '', from: '', to: '' },
+			],
+		}));
+	};
 
 	render() {
-		const { firstName, lastName } = this.state.personal;
+		const { firstName, lastName, title } = this.state.personal;
+
 		return (
 			<div className='main-container'>
 				<Header />
@@ -35,9 +65,14 @@ class App extends Component {
 					<CVForm
 						handleChangeFirstName={this.handleChangeFirstName}
 						handleChangeLastName={this.handleChangeLastName}
+						handleChangeTitle={this.handleChangeTitle}
+						firstName={firstName}
+						handleExperienceDelete={this.handleExperienceDelete}
+						experience={this.state.experience}
+						handleExperienceAdd={this.handleExperienceAdd}
 					/>
 
-					<CVPreview firstName={firstName} lastName={lastName} />
+					<CVPreview firstName={firstName} lastName={lastName} title={title} />
 				</div>
 
 				<Footer />

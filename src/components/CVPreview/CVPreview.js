@@ -5,7 +5,7 @@ const CVPreview = (props) => {
     return (
         <div className="cv-preview">
             <h3>CV Preview</h3>
-            <PreviewPersonal firstName={props.firstName} lastName={props.lastName} />
+            <PreviewPersonal firstName={props.firstName} lastName={props.lastName} title={props.title}/>
             
         </div>
     )
