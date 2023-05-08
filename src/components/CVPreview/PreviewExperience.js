@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PreviewExperience = (props) => {
     console.log(props);
     return (

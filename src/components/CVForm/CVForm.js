@@ -1,4 +1,3 @@
-import React from 'react';
 import FormPersonal from './FormPersonal';
 import FormExperience from './FormExperience';
 import FormEducation from './FormEducation';

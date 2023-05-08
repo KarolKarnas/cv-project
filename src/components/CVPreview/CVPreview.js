@@ -1,4 +1,3 @@
-import React from 'react';
 import PreviewPersonal from './PreviewPersonal.js';
 import PreviewExperience from './PreviewExperience';
 import PreviewEducation from './PreviewEducation.js';

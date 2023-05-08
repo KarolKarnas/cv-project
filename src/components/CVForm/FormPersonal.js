@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FormPersonal = (props) => {
 	return (
 		<section>

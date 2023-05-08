@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FormEducation = (props) => {
 	return <section className='education'>
 
