@@ -17,7 +17,7 @@ const CVForm = (props) => {
 			/>
 
             {props.experience.map((exp) => {
-                return <FormExperience key={exp.id} id={exp.id} handleExperienceDelete={props.handleExperienceDelete} handleChangePosition={props.handleChangePosition}/>
+                return <FormExperience key={exp.id} id={exp.id} handleExperienceDelete={props.handleExperienceDelete} handleChangeExperience={props.handleChangeExperience}/>
             })}
             {/* <FormExperience handleExperienceDelete={props.handleExperienceDelete}/> */}
             <button onClick={props.handleExperienceAdd}>Add Experience</button>

@@ -44,11 +44,11 @@ class App extends Component {
 
 	// Experience
 
-	handleChangePosition = (e, id) => {
+	handleChangeExperience = (e, id) => {
 		console.log(e.target);
 		this.setState((prevState) => ({
 			experience: prevState.experience.map((exp) =>
-				exp.id === id ? { ...exp, position: e.target.value } : exp
+				exp.id === id ? { ...exp, [e.target.name]: e.target.value } : exp
 			),
 		}));
 	};
@@ -88,7 +88,7 @@ class App extends Component {
 						handleExperienceDelete={this.handleExperienceDelete}
 						experience={this.state.experience}
 						handleExperienceAdd={this.handleExperienceAdd}
-						handleChangePosition={this.handleChangePosition}
+						handleChangeExperience={this.handleChangeExperience}
 					/>
 
 					<CVPreview
