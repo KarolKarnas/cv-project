@@ -102,3 +102,11 @@ button:hover {
   cursor: pointer;
 }
 
+textarea {
+  background-color: var(--grey-lighter);
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid #767676;
+  border-bottom: 2px solid #767676;
+}
+

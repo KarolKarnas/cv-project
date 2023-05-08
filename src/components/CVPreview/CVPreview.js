@@ -6,7 +6,7 @@ const CVPreview = (props) => {
     return (
         <div className="cv-preview">
             <h3>CV Preview</h3>
-            <PreviewPersonal firstName={props.firstName} lastName={props.lastName} title={props.title}/>
+            <PreviewPersonal firstName={props.firstName} lastName={props.lastName} title={props.title} address={props.address} phoneNumber={props.phoneNumber} email={props.email} aboutMe={props.aboutMe}/>
 
             <h3>Work Experience</h3>
             {props.experience.map((exp) => {

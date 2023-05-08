@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
 	state = {
-		personal: { firstName: 'Karol', lastName: 'Karnas', title: 'Magister' },
+		personal: { firstName: '', lastName: '', title: '' },
 		experience: [
 			{ id: uuidv4(), position: '', company: '', city: '', from: '', to: '' },
 		],
@@ -15,31 +15,15 @@ class App extends Component {
 
 	// personal
 
-	handleChangeFirstName = (e) => {
+	handleChangePersonal = (e) => {
 		this.setState((prevState) => ({
 			personal: {
 				...prevState.personal,
-				firstName: e.target.value,
+				[e.target.name]: e.target.value,
 			},
 		}));
 	};
 
-	handleChangeLastName = (e) => {
-		this.setState((prevState) => ({
-			personal: {
-				...prevState.personal,
-				lastName: e.target.value,
-			},
-		}));
-	};
-	handleChangeTitle = (e) => {
-		this.setState((prevState) => ({
-			personal: {
-				...prevState.personal,
-				title: e.target.value,
-			},
-		}));
-	};
 
 	// buttons
 
@@ -62,10 +46,12 @@ class App extends Component {
 
 	handleChangePosition = (e, id) => {
 		console.log(e.target);
-		this.setState(prevState => ({
-		  experience: prevState.experience.map(exp => exp.id === id ? { ...exp, position: e.target.value } : exp)
+		this.setState((prevState) => ({
+			experience: prevState.experience.map((exp) =>
+				exp.id === id ? { ...exp, position: e.target.value } : exp
+			),
 		}));
-	  };
+	};
 
 	// handleChangePosition = (e, id) => {
 	// 	this.setState((prevState) => ({
@@ -89,10 +75,8 @@ class App extends Component {
 	// 	this.setState({ experience: updatedExperience });
 	//   };
 
-
-	
 	render() {
-		const { firstName, lastName, title } = this.state.personal;
+		const { firstName, lastName, title, address, phoneNumber, email, aboutMe } = this.state.personal;
 
 		return (
 			<div className='main-container'>
@@ -100,10 +84,7 @@ class App extends Component {
 
 				<div className='cvs'>
 					<CVForm
-						handleChangeFirstName={this.handleChangeFirstName}
-						handleChangeLastName={this.handleChangeLastName}
-						handleChangeTitle={this.handleChangeTitle}
-						firstName={firstName}
+						handleChangePersonal={this.handleChangePersonal}
 						handleExperienceDelete={this.handleExperienceDelete}
 						experience={this.state.experience}
 						handleExperienceAdd={this.handleExperienceAdd}
@@ -114,6 +95,10 @@ class App extends Component {
 						firstName={firstName}
 						lastName={lastName}
 						title={title}
+						address={address}
+						phoneNumber={phoneNumber}
+						email={email}
+						aboutMe={aboutMe}
 						experience={this.state.experience}
 					/>
 				</div>

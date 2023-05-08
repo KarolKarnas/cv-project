@@ -9,7 +9,7 @@ const FormPersonal = (props) => {
 				name='firstName'
 				id='firstName'
 				placeholder='First Name'
-				onChange={props.handleChangeFirstName}
+				onChange={props.handleChangePersonal}
 				defaultValue={props.firstName}
 			/>
 
@@ -18,7 +18,7 @@ const FormPersonal = (props) => {
 				name='lastName'
 				id='lastName'
 				placeholder='Last Name'
-				onChange={props.handleChangeLastName}
+				onChange={props.handleChangePersonal}
 			/>
 
 			<input
@@ -26,17 +26,32 @@ const FormPersonal = (props) => {
 				name='title'
 				id='title'
 				placeholder='Title'
-				onChange={props.handleChangeTitle}
+				onChange={props.handleChangePersonal}
 			/>
-			<input type='text' name='address' id='address' placeholder='Address' />
+			<input
+				type='text'
+				name='address'
+				id='address'
+				placeholder='Address'
+				onChange={props.handleChangePersonal}
+			/>
 			<input
 				type='text'
 				name='phoneNumber'
 				id='phoneNumber'
 				placeholder='Phone Number'
+				onChange={props.handleChangePersonal}
 			/>
 
-			<input type='text' name='email' id='email' placeholder='E-mail' />
+			<input
+				type='text'
+				name='email'
+				id='email'
+				placeholder='E-mail'
+				onChange={props.handleChangePersonal}
+			/>
+
+			<textarea name="aboutMe" id="aboutMe" cols="30" rows="10" onChange={props.handleChangePersonal}></textarea>
 		</section>
 	);
 };

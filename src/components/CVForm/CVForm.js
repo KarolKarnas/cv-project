@@ -12,9 +12,7 @@ const CVForm = (props) => {
 		<div className='cv-form'>
 			<h3>CV Form</h3>
 			<FormPersonal
-				handleChangeFirstName={props.handleChangeFirstName}
-				handleChangeLastName={props.handleChangeLastName}
-                handleChangeTitle={props.handleChangeTitle}
+				handleChangePersonal={props.handleChangePersonal}
                 firstName={props.firstName}
 			/>
 
