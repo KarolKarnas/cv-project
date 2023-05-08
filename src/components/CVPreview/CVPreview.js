@@ -1,6 +1,7 @@
 import React from 'react';
 import PreviewPersonal from './PreviewPersonal.js';
 import PreviewExperience from './PreviewExperience';
+import PreviewEducation from './PreviewEducation.js';
 
 const CVPreview = (props) => {
 	return (
@@ -31,6 +32,24 @@ const CVPreview = (props) => {
 				);
 			})}
 			{/* <PreviewExperience experience={props.experience}/> */}
+
+            <h3>Education</h3>
+			{props.education.map((edu) => {
+				return (
+					<PreviewEducation
+						key={edu.id}
+						id={edu.id}
+						universityName={edu.universityName}
+						city={edu.city}
+						degree={edu.degree}
+						subject={edu.subject}
+						from={edu.from}
+						to={edu.to}
+					/>
+				);
+			})}
+
+
 		</div>
 	);
 };

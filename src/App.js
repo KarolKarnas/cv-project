@@ -11,6 +11,17 @@ class App extends Component {
 		experience: [
 			{ id: uuidv4(), position: '', company: '', city: '', from: '', to: '' },
 		],
+		education: [
+			{
+				id: uuidv4(),
+				universityName: 'Universitas Resovias',
+				city: 'Rzeszów',
+				degree: '',
+				subject: '',
+				from: '',
+				to: '',
+			},
+		],
 	};
 
 	// personal
@@ -23,7 +34,6 @@ class App extends Component {
 			},
 		}));
 	};
-
 
 	// buttons
 
@@ -75,8 +85,42 @@ class App extends Component {
 	// 	this.setState({ experience: updatedExperience });
 	//   };
 
+	// Education
+
+	handleEducationAdd = () => {
+		this.setState((prevState) => ({
+			education: [
+				...prevState.education,
+				{
+					id: uuidv4(),
+					universityName: '',
+					city: '',
+					degree: '',
+					subject: '',
+					from: '',
+					to: '',
+				},
+			],
+		}));
+	};
+
+	handleEducationDelete = (id) => {
+		this.setState((prevState) => ({
+			education: prevState.education.filter((edu) => edu.id !== id),
+		}));
+	};
+
+	handleChangeEducation = (e, id) => {
+		this.setState((prevState) => ({
+			education: prevState.education.map((edu) =>
+				edu.id === id ? { ...edu, [e.target.name]: e.target.value } : edu
+			),
+		}));
+	};
+
 	render() {
-		const { firstName, lastName, title, address, phoneNumber, email, aboutMe } = this.state.personal;
+		const { firstName, lastName, title, address, phoneNumber, email, aboutMe } =
+			this.state.personal;
 
 		return (
 			<div className='main-container'>
@@ -89,6 +133,10 @@ class App extends Component {
 						experience={this.state.experience}
 						handleExperienceAdd={this.handleExperienceAdd}
 						handleChangeExperience={this.handleChangeExperience}
+						education={this.state.education}
+						handleEducationAdd={this.handleEducationAdd}
+						handleEducationDelete={this.handleEducationDelete}
+						handleChangeEducation={this.handleChangeEducation}
 					/>
 
 					<CVPreview
@@ -100,6 +148,7 @@ class App extends Component {
 						email={email}
 						aboutMe={aboutMe}
 						experience={this.state.experience}
+						education={this.state.education}
 					/>
 				</div>
 

@@ -6,7 +6,7 @@ const PreviewExperience = (props) => {
         <section>
 <p> Position: {props.position} in {props.company}</p>
 <p>In the city of {props.city}</p>
-<p>{props.from} - {props.to}</p>
+<p>Date: {props.from} - {props.to}</p>
         </section>
     )
 }
